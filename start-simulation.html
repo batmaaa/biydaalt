@@ -100,71 +100,6 @@
             width: 500px;
             height: 500px;
         }
-        .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  border-radius: 5px;
-  padding: 0;
-  border: 1px solid #888;
-  width: 460px;
-  height: 280px;
-  font-size: 25px;
-  text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
-  
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.close {
-  color: purple;
-  font-size: 20px;
-  color: white;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  color: rgb(0, 0, 0);
-}
-
-.modal-body {padding: 2px 16px;}
-
     </style>
 </head>
 <body>
@@ -303,24 +238,14 @@
                         </div>
                     </div>
                 </ul>
-                <div id="myModal" class="modal">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1>Medal winners</h1>
-                      </div>
-                      <div class="modal-body">
-                          <div id="alt">alt</div>
-                          <div id="mungu">mungu </div>
-                          <div id="hurel">hurel</div>
-                      </div>
-                      <button class="close">Ok</button>
-                    </div>
-                  
-                  </div>
+                <div class="shagnal" onclick="shag" id="shagnal">
+                    <div class="gold" id="gold"></div>
+                    <div class="silver "id="silver"></div>
+                    <div class="bronze "id="bronze"></div>
+                </div>
             </div>
         </div>
 </div>
-
 </body>.
     <script>
         let milliseconds=0;
@@ -370,8 +295,8 @@
                     }
                 };
                 if(time2.innerHTML == display.innerHTML){
-                    document.getElementById('chel').innerHTML=generateRandom()+6;
-                    document.getElementById('ever').innerHTML=generateRandom()*3;
+                    man.innerHTML = Math.floor(Math.random()*10+1)
+                    manc.innerHTML = Math.floor(Math.random()*10+1)
                     if(chel.innerHTML > ever.innerHTML){
                         t10.innerHTML = t3.innerHTML
                         
@@ -433,18 +358,21 @@
                                console.log(t14.innerHTML) 
                             }else{
 
-                                console.log(t16.innerHTML+' golden medal') 
-                                console.log(t14.innerHTML+' broze medal') 
-                                console.log(t15.innerHTML+' silver medal')
+                                alert(t16.innerHTML+' golden medal') 
+                                alert(t14.innerHTML+' broze medal') 
+                                alert(t15.innerHTML+' silver medal')
                     }
-                    
-                            document.getElementById('alt').t16.innerHTML+' golden medal';
-                            document.getElementById('mungu').t15.innerHTML+' silver medal';
-                            document.getElementById('hurel').t14.innerHTML+' broze medal'; 
+                    if(hojil8.innerHTML == shagnal.innerHTML){
+                            document.getElementById('t16').innerHTML=gold.innerHTML;
+                            document.getElementById('t15').innerHTML=silver.innerHTML;
+                            document.getElementById('t14').innerHTML=bronze.innerHTML; 
                     }
 
                     }
-                      
+                  
+                
+    }
+    
         function toglolt(){
             if(status=='Stopped'){
                 interval=window.setInterval(toglolt1,10);
@@ -458,8 +386,6 @@
                 document.getElementById('time6').innerHTML=generateRandom1()+'/05/2022';
                 document.getElementById('time7').innerHTML=generateRandom2()+'/05/2022';
                 document.getElementById('time8').innerHTML=generateRandom3()+'/05/2022';
-
-                
                 
             }else if(status=='Started'){
                 window.clearInterval(interval);
@@ -468,59 +394,37 @@
 
             }
         }
-        function generateRandom(min = 01, max = 18){
+        function generateRandom(min = 01, max = 20){
             let tsag = max - min;
             let rand = Math.random();
             rand = Math.floor(rand * tsag);
             rand = rand + min;
             return rand;
         }
-        function generateRandom1(min = 19, max = 24){
+        function generateRandom1(min = 21, max = 26){
             let tsag = max - min;
             let rand = Math.random();
             rand = Math.floor(rand * tsag);
             rand = rand + min;
             return rand;
         }
-        function generateRandom2(min = 25, max = 27){
+        function generateRandom2(min = 27, max = 29){
             let tsag = max - min;
             let rand = Math.random();
             rand = Math.floor(rand * tsag);
             rand = rand + min;
             return rand;
         }
-        function generateRandom3(min = 28, max = 29){
+        function generateRandom3(min = 29, max = 30){
             let tsag = max - min;
             let rand = Math.random();
             rand = Math.floor(rand * tsag);
             rand = rand + min;
             return rand;
         }
-     
+        
 
 
-         var modal = document.getElementById("myModal");
-         var span = document.getElementsByClassName("close")[0];
-         setInterval(neeh = function() {
-         modal.style.display = "block";
-         },30*1000)
-         span.onclick = function() {
-         modal.style.display = "none";
-         }
-         window.onclick = function(event) {
-         if (event.target == modal) {
-            modal.style.display = "none";
-         }
-         }
-              
-         setInterval(function (){      
-            let g = getElementsById("alt");
-            let s = getElementsById("mungu");
-            let b = getElementsById("hurel");
-            a.innerHTML="Gold medal:"+ g.innerHTML;
-            m.innerHTML="Silver medal:"+ s.innerHTML;
-            h.innerHTML="Bronze medal:"+ b.innerHTML;
-         } )
-
-            </script>
-         </html>
+    </script>
+</html>
+                       
